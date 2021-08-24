@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
 | Property | Type | Description |
 |----|----|----|
 |`appBarItems`|`List`|List of `FABBottomAppBarItem`,length of `appBarItems` should be equal to the length of `bodyItems`|
-|`bodyItems`|`List`|List of `Widget`|list of `widgets`,length of `bodyItems` should be equal to the length of `appBarItems`|
+|`bodyItems`|`List`|List of `Widget`,length of `bodyItems` should be equal to the length of `appBarItems`|
 |`extendBody`|`bool`|`extendBody` default value always true|
 |`actionButton`|`CurvedActionBar`|Typically a `FloatingActionButton`|
 |`activeColor`|`Color`|`Color` of selected tab `activeColor` default value always `Colors.black`|
