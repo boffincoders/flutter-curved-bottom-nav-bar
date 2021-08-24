@@ -46,13 +46,13 @@ class CurvedNavBar extends StatefulWidget {
 
   CurvedNavBar(
       {@required this.appBarItems,
-        @required this.bodyItems,
-        this.extendBody = true,
-        this.actionButton,
-        this.activeColor = Colors.black,
-        this.inActiveColor = Colors.black26,
-        this.navBarBackgroundColor = Colors.white,
-        this.actionBarView}) {
+      @required this.bodyItems,
+      this.extendBody = true,
+      this.actionButton,
+      this.activeColor = Colors.black,
+      this.inActiveColor = Colors.black26,
+      this.navBarBackgroundColor = Colors.white,
+      this.actionBarView}) {
     assert(this.appBarItems != null);
     assert(this.bodyItems != null);
     assert(this.appBarItems!.length == this.bodyItems!.length);
@@ -73,73 +73,73 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
   Widget build(BuildContext context) {
     return widget.actionButton != null
         ? Scaffold(
-      extendBody: widget.extendBody,
-      floatingActionButton: GestureDetector(
-          behavior: HitTestBehavior.translucent,
-          onTap: () {
-            setState(() {
-              isCentreSelected = true;
-              widget.actionButton!.onTab!(true);
-            });
-          },
-          child: isCentreSelected
-              ? widget.actionButton!.activeIcon!
-              : widget.actionButton!.inActiveIcon != null
-              ? widget.actionButton!.inActiveIcon
-              : widget.actionButton!.activeIcon),
-      floatingActionButtonLocation:
-      FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: FABBottomAppBar(
-        centerItemText: widget.actionButton!.text ?? "",
-        inActiveColor: widget.inActiveColor,
-        activeColor: widget.activeColor,
-        notchedShape: CircularNotchedRectangle(),
-        onTabSelected: (index) {
-          /// execute when navigation bar is selected
-          setState(() {
-            /// set current tab index
-            selectedIndex = index;
+            extendBody: widget.extendBody,
+            floatingActionButton: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () {
+                  setState(() {
+                    isCentreSelected = true;
+                    if (widget.actionButton!.onTab != null)
+                      widget.actionButton!.onTab!(true);
+                  });
+                },
+                child: isCentreSelected
+                    ? widget.actionButton!.activeIcon!
+                    : widget.actionButton!.inActiveIcon != null
+                        ? widget.actionButton!.inActiveIcon
+                        : widget.actionButton!.activeIcon),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            bottomNavigationBar: FABBottomAppBar(
+              centerItemText: widget.actionButton!.text ?? "",
+              inActiveColor: widget.inActiveColor,
+              activeColor: widget.activeColor,
+              notchedShape: CircularNotchedRectangle(),
+              onTabSelected: (index) {
+                /// execute when navigation bar is selected
+                setState(() {
+                  /// set current tab index
+                  selectedIndex = index;
 
-            /// to get know [actionButton] is selected or not
-            isCentreSelected = false;
-          });
-        },
-        centerSelected: isCentreSelected,
-        backgroundColor: widget.navBarBackgroundColor,
-        items: widget.appBarItems != null ? widget.appBarItems : [],
-      ),
-      body: Center(
-        child: isCentreSelected
-            ? widget.actionBarView != null
-            ? widget.actionBarView
-            : widget.bodyItems![selectedIndex]
-            : widget.bodyItems![selectedIndex],
-      ),
-    )
+                  /// to get know [actionButton] is selected or not
+                  isCentreSelected = false;
+                });
+              },
+              centerSelected: isCentreSelected,
+              backgroundColor: widget.navBarBackgroundColor,
+              items: widget.appBarItems != null ? widget.appBarItems : [],
+            ),
+            body: Center(
+              child: isCentreSelected
+                  ? widget.actionBarView != null
+                      ? widget.actionBarView
+                      : widget.bodyItems![selectedIndex]
+                  : widget.bodyItems![selectedIndex],
+            ),
+          )
         : Scaffold(
-      extendBody: widget.extendBody,
-      bottomNavigationBar: FABBottomAppBar(
-        inActiveColor: widget.inActiveColor,
-        activeColor: widget.activeColor,
-        notchedShape: CircularNotchedRectangle(),
-        onTabSelected: (index) {
-          /// execute when navigation bar is selected
-          setState(() {
-            /// set current tab index
-            selectedIndex = index;
+            extendBody: widget.extendBody,
+            bottomNavigationBar: FABBottomAppBar(
+              inActiveColor: widget.inActiveColor,
+              activeColor: widget.activeColor,
+              notchedShape: CircularNotchedRectangle(),
+              onTabSelected: (index) {
+                /// execute when navigation bar is selected
+                setState(() {
+                  /// set current tab index
+                  selectedIndex = index;
 
-            /// to get know [actionButton] is selected or not
-            isCentreSelected = false;
-          });
-        },
-        centerSelected: isCentreSelected,
-        backgroundColor: widget.navBarBackgroundColor,
-        items: widget.appBarItems != null ? widget.appBarItems : [],
-      ),
-      body: Center(
-        child: widget.bodyItems![selectedIndex],
-      ),
-    );
+                  /// to get know [actionButton] is selected or not
+                  isCentreSelected = false;
+                });
+              },
+              centerSelected: isCentreSelected,
+              backgroundColor: widget.navBarBackgroundColor,
+              items: widget.appBarItems != null ? widget.appBarItems : [],
+            ),
+            body: Center(
+              child: widget.bodyItems![selectedIndex],
+            ),
+          );
   }
 }
-
