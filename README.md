@@ -1,6 +1,6 @@
 # curved_nav_bar
 
-Bottom nav bar with FAB,  You can use FAB as a middle tab or perform other operations like, open popup or open camera.
+Bottom nav bar with FAB and center text,  You can use FAB as a middle tab or perform other operations like, open popup or open camera.
 
 ## Screenshots
 
