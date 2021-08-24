@@ -128,6 +128,17 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
+| Property | Type | Description |
+|----|----|----|
+|`appBarItems`|`List`|List if `FABBottomAppBarItem`,length of [appBarItems] should be equal to the length of [bodyItems]|
+|`bodyItems`|`List`|List of `Widget`|list of `widgets`,length of [bodyItems] should be equal to the length of [appBarItems]|
+|`extendBody`|`bool`|[extendBody] default value always true|
+|`actionButton`|`CurvedActionBar`|Typically a [FloatingActionButton]|
+|`activeColor`|`Color`|[Color] of selected tab [activeColor] default value always [Colors.black]|
+|`inActiveColor`|`Color`|[Color] of unselected tab [inActiveColor] default value always [Colors.black26]|
+|`navBarBackgroundColor`|`Color`|background [Color] of navigation bar [navBarBackgroundColor] default value always [Colors.white]|
+|`actionBarView`|`Widget`|Set as scaffold [body] when [actionButton] selected|
+
 ## Pull Requests
 
 Pull requests are most welcome. It usually will take me within 24-48 hours to respond to any issue or request.

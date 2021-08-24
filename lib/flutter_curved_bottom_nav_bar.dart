@@ -13,7 +13,7 @@ class CurvedNavBar extends StatefulWidget {
   /// length of [appBarItems] should be equal to the length of [bodyItems]
   final List<FABBottomAppBarItem>? appBarItems;
 
-  /// list of `body` widgets
+  /// list of `widgets`
   /// length should be equal to [appBarItems]
   /// length of [bodyItems] should be equal to the length of [appBarItems]
   final List<Widget>? bodyItems;
