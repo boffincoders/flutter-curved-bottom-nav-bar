@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_curved_bottom_nav_bar/curved_bar/curved_action_bar.dart';
-import 'package:flutter_curved_bottom_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
-import 'package:flutter_curved_bottom_nav_bar/flutter_curved_bottom_nav_bar.dart';
+import 'package:curved_nav_bar/curved_bar/curved_action_bar.dart';
+import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
+import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
 void main() {
   runApp(MyApp());
 }

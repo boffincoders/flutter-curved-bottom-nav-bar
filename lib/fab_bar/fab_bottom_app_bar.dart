@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'fab_bottom_app_bar_item.dart';
 
-
 class FABBottomAppBar extends StatefulWidget {
   FABBottomAppBar({
     this.items,
@@ -16,7 +15,7 @@ class FABBottomAppBar extends StatefulWidget {
     this.onTabSelected,
     this.centerSelected = false,
   }) {
-    assert(this.items!.length%2==0);
+    assert(this.items!.length % 2 == 0);
   }
 
   /// [List] of [FABBottomAppBarItem]
@@ -52,15 +51,12 @@ class FABBottomAppBar extends StatefulWidget {
   /// else false
   final bool centerSelected;
 
-
-
   @override
   State<StatefulWidget> createState() => FABBottomAppBarState();
 }
 
 class FABBottomAppBarState extends State<FABBottomAppBar> {
   int _selectedIndex = 0;
-
 
   /// method execute when tab item selected
   _updateIndex(int index) {
@@ -105,7 +101,9 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
             Text(
               widget.centerItemText ?? '',
               style: TextStyle(
-                  color: widget.centerSelected ? widget.activeColor : widget.inActiveColor),
+                  color: widget.centerSelected
+                      ? widget.activeColor
+                      : widget.inActiveColor),
             ),
           ],
         ),
@@ -123,11 +121,11 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
         : !widget.centerSelected
             ? widget.activeColor!
             : widget.inActiveColor!;
-    Widget? icon=_selectedIndex != index && !widget.centerSelected
+    Widget? icon = _selectedIndex != index && !widget.centerSelected
         ? item!.inActiveIcon
         : !widget.centerSelected
-        ? item!.activeIcon
-        : item!.inActiveIcon;
+            ? item!.activeIcon
+            : item!.inActiveIcon;
     return Expanded(
       child: SizedBox(
         height: widget.height,
@@ -139,7 +137,7 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-               icon!,
+                icon!,
                 Text(
                   item.text!,
                   style: TextStyle(color: color),

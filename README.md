@@ -1,4 +1,4 @@
-# flutter_curved_bottom_nav_bar
+# curved_nav_bar
 
 Bottom nav bar with FAB,  You can use FAB as a middle tab or perform other operations like, open popup or open camera.
 
@@ -18,15 +18,15 @@ To use this package :
  dependencies:
     flutter:
       sdk: flutter
-    flutter_curved_bottom_nav_bar:
+    curved_nav_bar:
 ```
 # Getting started
 To start, import the dependency in your code:
 
 ```dart
-import 'package:flutter_curved_bottom_nav_bar/curved_bar/curved_action_bar.dart';
-import 'package:flutter_curved_bottom_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
-import 'package:flutter_curved_bottom_nav_bar/flutter_curved_bottom_nav_bar.dart';
+import 'package:curved_nav_bar/curved_bar/curved_action_bar.dart';
+import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
+import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
 ```
 
 
@@ -64,9 +64,9 @@ Options for CurvedActionBar are:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_curved_bottom_nav_bar/curved_bar/curved_action_bar.dart';
-import 'package:flutter_curved_bottom_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
-import 'package:flutter_curved_bottom_nav_bar/flutter_curved_bottom_nav_bar.dart';
+import 'package:curved_nav_bar/curved_bar/curved_action_bar.dart';
+import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
+import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
 void main() {
   runApp(MyApp());
 }
