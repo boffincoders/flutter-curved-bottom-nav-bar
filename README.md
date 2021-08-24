@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
 |`actionButton`|`CurvedActionBar`|Typically a `FloatingActionButton`|
 |`activeColor`|`Color`|`Color` of selected tab `activeColor` default value always `Colors.black`|
 |`inActiveColor`|`Color`|`Color` of unselected tab `inActiveColor` default value always `Colors.black26`|
-|`navBarBackgroundColor`|`Color`|background [Color] of navigation bar [navBarBackgroundColor] default value always [Colors.white]|
+|`navBarBackgroundColor`|`Color`|background `Color` of navigation bar `navBarBackgroundColor` default value always `Colors.white`|
 |`actionBarView`|`Widget`|Set as scaffold `body` when `actionButton` selected|
 
 ## Pull Requests
