@@ -2,7 +2,6 @@ name: flutter_curved_bottom_nav_bar
 description: Bottom nav bar with FAB,  You can use FAB as a middle tab or perform other operations like, open popup or open camera.
 version: 0.0.1
 homepage: https://github.com/boffincoders/flutter-curved-bottom-nav-bar
-authors: [ Boffin Coders <boffincoders@gmail.com> ]
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
