@@ -22,7 +22,7 @@ To use this package :
 ```
 
 
-The following options are available for ##CurvedNavBar:
+The following options are available for CurvedNavBar:
 
 | Property | Type | Description |
 |----|----|----|
@@ -34,6 +34,23 @@ The following options are available for ##CurvedNavBar:
 |`inActiveColor`|`Color`|`Color` of unselected tab `inActiveColor` default value always `Colors.black26`|
 |`navBarBackgroundColor`|`Color`|background `Color` of navigation bar `navBarBackgroundColor` default value always `Colors.white`|
 |`actionBarView`|`Widget`|Set as scaffold `body` when `actionButton` selected|
+
+Options for FABBottomAppBarItem are:
+
+| Property | Type | Description |
+|----|----|----|
+|`activeIcon`|`Widget`|selected icon of navigation bar item|
+|`inActiveIcon`|`Widget`|unselected icon of navigation bar item|
+|`text`|`String`|label of navigation bar item|
+
+Options for CurvedActionBar are:
+
+| Property | Type | Description |
+|----|----|----|
+|`activeIcon`|`Widget`|selected icon for `actionButton`|
+|`inActiveIcon`|`Widget`|unselected icon of `actionButton`|
+|`text`|`String`|text label for `actionButton`|
+|`onTab`|`ValueChanged`|return `bool` value when tab on `actionButton`|
 
 ### How to use
 
