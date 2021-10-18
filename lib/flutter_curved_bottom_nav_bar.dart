@@ -73,6 +73,7 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
   Widget build(BuildContext context) {
     return widget.actionButton != null
         ? Scaffold(
+            resizeToAvoidBottomInset: false,
             extendBody: widget.extendBody,
             floatingActionButton: GestureDetector(
                 behavior: HitTestBehavior.translucent,
