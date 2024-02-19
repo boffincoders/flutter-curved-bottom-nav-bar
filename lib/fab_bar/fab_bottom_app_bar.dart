@@ -13,6 +13,7 @@ class FABBottomAppBar extends StatefulWidget {
     this.activeColor,
     this.notchedShape,
     this.onTabSelected,
+    this.selectedIndex,
     this.centerSelected = false,
   }) {
     assert(this.items!.length % 2 == 0);
@@ -51,13 +52,21 @@ class FABBottomAppBar extends StatefulWidget {
   /// else false
   final bool centerSelected;
 
+  ///[int] [selectedIndex] is selecting the initial page
+  final int? selectedIndex;
+
   @override
   State<StatefulWidget> createState() => FABBottomAppBarState();
 }
 
 class FABBottomAppBarState extends State<FABBottomAppBar> {
-  int _selectedIndex = 0;
+  late int _selectedIndex ;
 
+@override
+void initState() {
+  super.initState();
+  _selectedIndex = widget.selectedIndex??0;
+}
   /// method execute when tab item selected
   _updateIndex(int index) {
     widget.onTabSelected!(index);
