@@ -44,6 +44,13 @@ class CurvedNavBar extends StatefulWidget {
   /// when [actionButton] selected
   final Widget? actionBarView;
 
+  /// Scaffold [appbar]
+  final AppBar? appbar;
+
+  /// Selecting initial page [selectindex]
+  /// This Should Max at the length of [appBarItems] length
+  final intr? index;
+
   CurvedNavBar(
       {@required this.appBarItems,
       @required this.bodyItems,
@@ -52,6 +59,8 @@ class CurvedNavBar extends StatefulWidget {
       this.activeColor = Colors.black,
       this.inActiveColor = Colors.black26,
       this.navBarBackgroundColor = Colors.white,
+      this.appbar,
+      this.index,
       this.actionBarView}) {
     assert(this.appBarItems != null);
     assert(this.bodyItems != null);
@@ -67,12 +76,25 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
   int selectedIndex = 0;
 
   /// true when [actionButton] is selected
-  bool isCentreSelected = false;
+  late bool isCentreSelected;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.index != null) {
+      if (widget.index <= widget.appBarItems!.length) {
+        selectedIndex = widget.index;
+      }
+    } else {
+      isCentreSelected = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return widget.actionButton != null
         ? Scaffold(
+            appBar: widget.appbar,
             resizeToAvoidBottomInset: false,
             extendBody: widget.extendBody,
             floatingActionButton: GestureDetector(
