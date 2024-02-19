@@ -3,8 +3,6 @@ library curved_nav_bar;
 import 'package:flutter/material.dart';
 import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar.dart';
 import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
-
-import 'fab_bar/fab_bottom_app_bar_item.dart';
 import 'curved_bar/curved_action_bar.dart';
 
 class CurvedNavBar extends StatefulWidget {
@@ -44,6 +42,14 @@ class CurvedNavBar extends StatefulWidget {
   /// when [actionButton] selected
   final Widget? actionBarView;
 
+  /// Scaffold [appbar]
+  final AppBar? appbar;
+
+  /// Selecting initial page [selectindex]
+  /// This Should Max at the length of [appBarItems] length
+  /// if not Provided Set Default to [actionButton]
+  final int? index;
+
   CurvedNavBar(
       {@required this.appBarItems,
       @required this.bodyItems,
@@ -52,6 +58,8 @@ class CurvedNavBar extends StatefulWidget {
       this.activeColor = Colors.black,
       this.inActiveColor = Colors.black26,
       this.navBarBackgroundColor = Colors.white,
+      this.appbar,
+      this.index,
       this.actionBarView}) {
     assert(this.appBarItems != null);
     assert(this.bodyItems != null);
@@ -64,15 +72,33 @@ class CurvedNavBar extends StatefulWidget {
 
 class _CurvedNavBarState extends State<CurvedNavBar> {
   /// index of selected nav bar
-  int selectedIndex = 0;
+  late int selectedIndex;
 
   /// true when [actionButton] is selected
-  bool isCentreSelected = false;
+  late bool isCentreSelected;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.index != null) {
+      if ( widget.index! <= widget.appBarItems!.length) {
+        selectedIndex = widget.index!;
+      }else{
+        selectedIndex=0;
+        throw Exception("The index Must Be Eaqual or less than the Length of Bar Items or Pages");
+      }
+    isCentreSelected = false;  
+    } else {
+      selectedIndex=0;
+      isCentreSelected = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return widget.actionButton != null
         ? Scaffold(
+            appBar: widget.appbar,
             resizeToAvoidBottomInset: false,
             extendBody: widget.extendBody,
             floatingActionButton: GestureDetector(
@@ -96,6 +122,7 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
               inActiveColor: widget.inActiveColor,
               activeColor: widget.activeColor,
               notchedShape: CircularNotchedRectangle(),
+              selectedIndex: selectedIndex,
               onTabSelected: (index) {
                 /// execute when navigation bar is selected
                 setState(() {
@@ -119,6 +146,7 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
             ),
           )
         : Scaffold(
+             appBar: widget.appbar,
             extendBody: widget.extendBody,
             bottomNavigationBar: FABBottomAppBar(
               inActiveColor: widget.inActiveColor,
