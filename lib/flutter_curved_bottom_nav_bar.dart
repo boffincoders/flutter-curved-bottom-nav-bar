@@ -3,8 +3,6 @@ library curved_nav_bar;
 import 'package:flutter/material.dart';
 import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar.dart';
 import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
-
-import 'fab_bar/fab_bottom_app_bar_item.dart';
 import 'curved_bar/curved_action_bar.dart';
 
 class CurvedNavBar extends StatefulWidget {
@@ -66,6 +64,7 @@ class CurvedNavBar extends StatefulWidget {
     assert(this.appBarItems != null);
     assert(this.bodyItems != null);
     assert(this.appBarItems!.length == this.bodyItems!.length);
+    assert(this.appBarItems!.length >= this.index!);
   }
 
   @override
@@ -83,8 +82,8 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
   void initState() {
     super.initState();
     if (widget.index != null) {
-      if (widget.index <= widget.appBarItems!.length) {
-        selectedIndex = widget.index;
+      if ( widget.index! <= widget.appBarItems!.length) {
+        selectedIndex = widget.index!;
       }
     } else {
       isCentreSelected = true;
