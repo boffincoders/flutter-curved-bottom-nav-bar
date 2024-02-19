@@ -64,7 +64,6 @@ class CurvedNavBar extends StatefulWidget {
     assert(this.appBarItems != null);
     assert(this.bodyItems != null);
     assert(this.appBarItems!.length == this.bodyItems!.length);
-    assert(this.appBarItems!.length >= this.index!);
   }
 
   @override
