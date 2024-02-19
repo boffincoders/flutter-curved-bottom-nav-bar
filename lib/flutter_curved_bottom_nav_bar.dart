@@ -49,7 +49,8 @@ class CurvedNavBar extends StatefulWidget {
 
   /// Selecting initial page [selectindex]
   /// This Should Max at the length of [appBarItems] length
-  final intr? index;
+  /// if not Provided Set Default to [actionButton]
+  final int? index;
 
   CurvedNavBar(
       {@required this.appBarItems,
@@ -141,6 +142,7 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
             ),
           )
         : Scaffold(
+             appBar: widget.appbar,
             extendBody: widget.extendBody,
             bottomNavigationBar: FABBottomAppBar(
               inActiveColor: widget.inActiveColor,
