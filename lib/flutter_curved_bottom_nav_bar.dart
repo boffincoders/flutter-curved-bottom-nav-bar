@@ -72,7 +72,7 @@ class CurvedNavBar extends StatefulWidget {
 
 class _CurvedNavBarState extends State<CurvedNavBar> {
   /// index of selected nav bar
-  int selectedIndex = 0;
+  late int selectedIndex;
 
   /// true when [actionButton] is selected
   late bool isCentreSelected;
@@ -83,8 +83,13 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
     if (widget.index != null) {
       if ( widget.index! <= widget.appBarItems!.length) {
         selectedIndex = widget.index!;
+      }else{
+        selectedIndex=0;
+        throw Exception("The index Must Be Eaqual or less than the Length of Bar Items or Pages");
       }
+    isCentreSelected = false;  
     } else {
+      selectedIndex=0;
       isCentreSelected = true;
     }
   }
@@ -117,6 +122,7 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
               inActiveColor: widget.inActiveColor,
               activeColor: widget.activeColor,
               notchedShape: CircularNotchedRectangle(),
+              selectedIndex: selectedIndex,
               onTabSelected: (index) {
                 /// execute when navigation bar is selected
                 setState(() {
